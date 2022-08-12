@@ -16,13 +16,11 @@ export default function Home ({ data }) {
           window.location.href = "/exam?id="+id+"&user="+document.getElementById("who")?.value+"&duration="+duration+"&no="+no+"&cat="+cat+""
         }
         else {
-          document.querySelector(".issue")?.classList.remove("hidden")
-          document.getElementById("issue")?.innerHTML = "This exam have not started yet, reload when the teacher tells you the exam have started"
+          document.querySelector(".notstart")?.classList.remove("hidden")
         }
       }
       else {
-        document.querySelector(".issue")?.classList.remove("hidden")
-        document.getElementById("issue")?.innerHTML = "Please fill in all details"
+        document.querySelector(".fill")?.classList.remove("hidden")
       }
     }
   }
@@ -54,7 +52,8 @@ export default function Home ({ data }) {
                       } 
               </select>
               <button className="text-white bg-red-500 w-full p-2.5 rounded-lg" onClick={enter}>Enter session</button>
-              <p className="hidden text-red-500 issue" id="issue"></p>
+              <p className="hidden text-red-500 notstart">This exam have not started yet, reload when the teacher tells you the exam have started</p>
+              <p className="hidden text-red-500 fill">Please fill in all details</p>
             </div>
           ) : <h1 className="px-4 text-lg text-center text-white sm:text-2xl">No sessions are currently going on please come back later</h1>
         }
